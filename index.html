@@ -704,7 +704,24 @@ td { padding: 12px 18px; vertical-align: middle; font-size: 0.81rem; white-space
 }
 .pred-notice-icon { font-size:1.5rem; flex-shrink:0; margin-top:1px; }
 
-/* ── SMART SIGNALS ── */
+/* ── GLOBAL FILTER ── */
+.filter-select {
+  background: rgba(255,255,255,.05); border: 1px solid var(--border2);
+  border-radius: var(--r-sm); color: var(--text2);
+  font-family: var(--font); font-size: 0.75rem; font-weight: 600;
+  padding: 7px 28px 7px 12px; cursor: pointer; outline: none;
+  appearance: none; -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%238b9cc8'/%3E%3C/svg%3E");
+  background-repeat: no-repeat; background-position: right 10px center;
+  transition: all .18s; white-space: nowrap;
+}
+.filter-select:hover { border-color: var(--blue); color: var(--text); }
+.filter-select:focus { border-color: var(--blue); box-shadow: 0 0 0 3px rgba(79,172,254,.1); }
+.filter-select option { background: #0c1428; color: var(--text); }
+.filter-label {
+  font-size: 0.67rem; font-weight: 700; letter-spacing:.07em;
+  text-transform: uppercase; color: var(--muted); white-space: nowrap;
+}
 .sig-badge {
   display:inline-flex; align-items:center; gap:5px;
   font-size:0.6rem; font-weight:800; padding:2px 8px; border-radius:20px;
@@ -890,6 +907,13 @@ td { padding: 12px 18px; vertical-align: middle; font-size: 0.81rem; white-space
       </div>
       <span class="source-chip" id="sourceChip"></span>
       <span class="next-refresh" id="nextRefresh"></span>
+      <!-- Global Filter -->
+      <span class="filter-label">Show</span>
+      <select class="filter-select" id="globalFilter" onchange="applyGlobalFilter(this.value)">
+        <option value="200" selected>Top 200</option>
+        <option value="100">Top 100</option>
+        <option value="50">Top 50</option>
+      </select>
       <button class="btn btn-ghost" onclick="openSettings()">⚙ API Key</button>
       <button class="btn btn-primary" id="refreshBtn" onclick="manualRefresh()">↻ Refresh</button>
     </div>
@@ -1376,6 +1400,7 @@ td { padding: 12px 18px; vertical-align: middle; font-size: 0.81rem; white-space
 const STORAGE_KEY    = 'cryptotracker_snapshots';
 const LAST_FETCH_KEY = 'cryptotracker_last_fetch';
 const API_KEY_STORE  = 'cryptotracker_cg_key';
+const FILTER_KEY     = 'cryptotracker_filter';
 const REFRESH_MS     = 12 * 60 * 60 * 1000;
 
 const CG_URL = 'https://api.coingecko.com/api/v3/coins/markets' +
@@ -1385,7 +1410,8 @@ const CC_URL = 'https://api.coincap.io/v2/assets?limit=200';
 // ─── STATE ────────────────────────────────────────
 let currentData = [], calYear = new Date().getFullYear(),
     calMonth = new Date().getMonth(), calSelected = null,
-    refreshTimer = null, countdownTimer = null;
+    refreshTimer = null, countdownTimer = null,
+    activeFilter = 200; // default Top 200
 
 // ─── SETTINGS ─────────────────────────────────────
 function openSettings() {
@@ -1409,11 +1435,38 @@ document.getElementById('settingsModal').addEventListener('click', e => { if (e.
 
 // ─── INIT ─────────────────────────────────────────
 window.addEventListener('DOMContentLoaded', async () => {
+  // Restore saved filter
+  const savedFilter = parseInt(localStorage.getItem(FILTER_KEY)) || 200;
+  activeFilter = savedFilter;
+  const sel = document.getElementById('globalFilter');
+  if (sel) sel.value = String(savedFilter);
+
   renderCalendar();
   const cached = loadTodayCache();
   if (cached) { setStatus('Cached'); renderDashboard(cached); scheduleRefresh(); }
   else await fetchData();
 });
+
+// ─── GLOBAL FILTER ────────────────────────────────
+function applyGlobalFilter(val) {
+  activeFilter = parseInt(val) || 200;
+  localStorage.setItem(FILTER_KEY, String(activeFilter));
+
+  // Re-render everything with new filter
+  if (currentData && currentData.length) {
+    renderDashboard(currentData);
+    // Re-run active tab if prediction or seasonal is open
+    const predPage = document.getElementById('page-prediction');
+    if (predPage && predPage.classList.contains('active')) runPrediction();
+    const seasPage = document.getElementById('page-seasonal');
+    if (seasPage && seasPage.classList.contains('active')) buildSeasonalHeatmap();
+  }
+}
+
+// Helper: get filtered slice of data
+function filteredData() {
+  return currentData.slice(0, activeFilter);
+}
 
 // ─── MULTI-SOURCE FETCH ───────────────────────────
 async function fetchData() {
@@ -1535,10 +1588,11 @@ function getStoredDates()  { try{return Object.keys(JSON.parse(localStorage.getI
 // ─── RENDER DASHBOARD ─────────────────────────────
 function renderDashboard(data) {
   currentData = data;
+  const fd = filteredData(); // apply global filter
   showLoading(false);
   document.getElementById('dataContent').style.display = 'block';
 
-  countUp(document.getElementById('statCoins'), data.length, 1200, false);
+  countUp(document.getElementById('statCoins'), fd.length, 1200, false);
   const last = localStorage.getItem(LAST_FETCH_KEY);
   if (last) {
     const d = new Date(last);
@@ -1547,10 +1601,10 @@ function renderDashboard(data) {
       d.toLocaleDateString([],{month:'short',day:'numeric'});
   }
 
-  const by24 = [...data].filter(c=>c.price_change_percentage_24h!=null).sort((a,b)=>b.price_change_percentage_24h-a.price_change_percentage_24h);
-  const by7d = [...data].filter(c=>c.price_change_percentage_7d_in_currency!=null).sort((a,b)=>b.price_change_percentage_7d_in_currency-a.price_change_percentage_7d_in_currency);
-  const byAmt = [...data].filter(c=>c.price_change_24h!=null).sort((a,b)=>b.price_change_24h-a.price_change_24h);
-  const byVol = [...data].filter(c=>c.total_volume!=null).sort((a,b)=>b.total_volume-a.total_volume);
+  const by24 = [...fd].filter(c=>c.price_change_percentage_24h!=null).sort((a,b)=>b.price_change_percentage_24h-a.price_change_percentage_24h);
+  const by7d = [...fd].filter(c=>c.price_change_percentage_7d_in_currency!=null).sort((a,b)=>b.price_change_percentage_7d_in_currency-a.price_change_percentage_7d_in_currency);
+  const byAmt = [...fd].filter(c=>c.price_change_24h!=null).sort((a,b)=>b.price_change_24h-a.price_change_24h);
+  const byVol = [...fd].filter(c=>c.total_volume!=null).sort((a,b)=>b.total_volume-a.total_volume);
 
   if (by24.length>=2) {
     const b=by24[0],w=by24[by24.length-1];
@@ -1575,7 +1629,7 @@ function renderDashboard(data) {
   fillTable('tbl-vol-up', byVol.slice(0,10),   'volup');
   fillTable('tbl-vol-dn', byVol.slice(-10).reverse(),'voldn');
 
-  buildTicker(data);
+  buildTicker(fd);
   requestAnimationFrame(setupReveal);
 }
 
@@ -1745,12 +1799,13 @@ function runPrediction() {
     return;
   }
 
-  const has7d = currentData.some(c => c.price_change_percentage_7d_in_currency != null);
+  const fd = filteredData(); // apply global filter
+  const has7d = fd.some(c => c.price_change_percentage_7d_in_currency != null);
   if (!has7d) { no7dEl.style.display = 'flex'; resultsEl.style.display = 'none'; return; }
   no7dEl.style.display = 'none';
 
   // ── STEP 1: Raw factors ────────────────────────────────────────
-  const eligible = currentData.filter(c =>
+  const eligible = fd.filter(c =>
     c.price_change_percentage_7d_in_currency != null &&
     c.price_change_percentage_24h != null &&
     c.total_volume != null && c.market_cap > 0
@@ -1906,7 +1961,7 @@ function runPrediction() {
 
   resultsEl.style.display = 'block';
   document.getElementById('predSubtitle').textContent =
-    `Analyzed ${eligible.length} coins · Smart Score v2 with RSI + Streak + Volume Divergence · ${new Date(localStorage.getItem(LAST_FETCH_KEY)||Date.now()).toLocaleDateString()}`;
+    `Analyzed ${eligible.length} coins (Top ${activeFilter}) · Smart Score v2 with RSI + Streak + Volume Divergence · ${new Date(localStorage.getItem(LAST_FETCH_KEY)||Date.now()).toLocaleDateString()}`;
 }
 
 // ─── SEASONAL ENGINE ─────────────────────────────
@@ -1972,8 +2027,8 @@ function hmClass(val) {
 
 function buildSeasonalHeatmap() {
   const localData = getLocalMonthlyData();
-  // Get top 15 coins from currentData
-  const coins = (currentData || []).slice(0, 15);
+  // Get top coins based on active filter
+  const coins = filteredData().slice(0, 15);
   if (!coins.length) {
     document.getElementById('seasonHeatmapBody').innerHTML =
       '<tr><td colspan="13" style="padding:30px;text-align:center;color:var(--muted)">Load data first to see the heatmap.</td></tr>';
@@ -2014,7 +2069,7 @@ function buildSeasonalHeatmap() {
 function buildSeasonalBest() {
   const curMonth = new Date().getMonth();
   const localData = getLocalMonthlyData();
-  const coins = (currentData || []).slice(0, 50);
+  const coins = filteredData().slice(0, 50);
 
   const ranked = coins.map(c => {
     const local = localData[c.id]?.[curMonth];
