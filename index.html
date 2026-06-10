@@ -704,92 +704,6 @@ td { padding: 12px 18px; vertical-align: middle; font-size: 0.81rem; white-space
 }
 .pred-notice-icon { font-size:1.5rem; flex-shrink:0; margin-top:1px; }
 
-/* ── GLOBAL FILTER ── */
-.filter-select {
-  background: rgba(255,255,255,.05); border: 1px solid var(--border2);
-  border-radius: var(--r-sm); color: var(--text2);
-  font-family: var(--font); font-size: 0.75rem; font-weight: 600;
-  padding: 7px 28px 7px 12px; cursor: pointer; outline: none;
-  appearance: none; -webkit-appearance: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%238b9cc8'/%3E%3C/svg%3E");
-  background-repeat: no-repeat; background-position: right 10px center;
-  transition: all .18s; white-space: nowrap;
-}
-.filter-select:hover { border-color: var(--blue); color: var(--text); }
-.filter-select:focus { border-color: var(--blue); box-shadow: 0 0 0 3px rgba(79,172,254,.1); }
-.filter-select option { background: #0c1428; color: var(--text); }
-.filter-label {
-  font-size: 0.67rem; font-weight: 700; letter-spacing:.07em;
-  text-transform: uppercase; color: var(--muted); white-space: nowrap;
-}
-.sig-badge {
-  display:inline-flex; align-items:center; gap:5px;
-  font-size:0.6rem; font-weight:800; padding:2px 8px; border-radius:20px;
-  text-transform:uppercase; letter-spacing:.06em; white-space:nowrap;
-}
-.sig-ob   { background:rgba(255,77,109,.12);  color:var(--red);    border:1px solid rgba(255,77,109,.2);  }
-.sig-os   { background:rgba(0,245,160,.10);   color:var(--green);  border:1px solid rgba(0,245,160,.2);  }
-.sig-neu  { background:rgba(139,156,200,.08); color:var(--text2);  border:1px solid rgba(139,156,200,.1);}
-.sig-warn { background:rgba(255,214,10,.10);  color:var(--gold);   border:1px solid rgba(255,214,10,.2); }
-.sig-ok   { background:rgba(0,212,170,.10);   color:var(--teal);   border:1px solid rgba(0,212,170,.2);  }
-
-.smart-row {
-  display:flex; flex-wrap:wrap; gap:5px; margin:8px 0 6px;
-}
-.streak-bar {
-  display:flex; align-items:center; gap:6px;
-  font-size:0.67rem; color:var(--muted); margin:6px 0;
-}
-.streak-dots { display:flex; gap:2px; }
-.sdot { width:8px; height:8px; border-radius:2px; }
-.sdot-g { background:var(--green); }
-.sdot-r { background:var(--red); }
-.sdot-n { background:rgba(255,255,255,.1); }
-
-.conf-bar-wrap { margin:8px 0 4px; }
-.conf-bar-label { display:flex; justify-content:space-between; font-size:0.66rem; color:var(--muted); margin-bottom:4px; font-weight:600; }
-.conf-bar-track { height:5px; background:rgba(255,255,255,.06); border-radius:3px; overflow:hidden; }
-.conf-bar-fill  { height:100%; border-radius:3px; transition:width .8s cubic-bezier(.34,1.2,.64,1); }
-.fill-high   { background: linear-gradient(90deg,var(--green),var(--teal)); }
-.fill-mid    { background: linear-gradient(90deg,var(--gold),var(--amber)); }
-.fill-low    { background: linear-gradient(90deg,var(--red),#ff8b42); }
-
-/* ── SEASONAL HEATMAP ── */
-.heatmap-wrap { overflow-x:auto; margin-top:8px; }
-.heatmap-table { border-collapse:collapse; width:100%; min-width:700px; font-size:0.72rem; }
-.heatmap-table th {
-  padding:8px 10px; font-size:0.6rem; font-weight:700; letter-spacing:.07em;
-  text-transform:uppercase; color:var(--muted); text-align:center; white-space:nowrap;
-}
-.heatmap-table td { padding:6px 8px; text-align:center; border-radius:6px; font-weight:700; font-size:0.7rem; white-space:nowrap; }
-.heatmap-coin-cell { text-align:left!important; display:flex; align-items:center; gap:7px; min-width:110px; }
-.heatmap-coin-cell img { width:18px; height:18px; border-radius:50%; }
-.hm-hot    { background:rgba(0,245,160,.18);  color:var(--green); }
-.hm-warm   { background:rgba(0,212,170,.10);  color:var(--teal);  }
-.hm-cool   { background:rgba(255,77,109,.10); color:var(--red);   }
-.hm-cold   { background:rgba(255,77,109,.18); color:#ff2d5a;      }
-.hm-flat   { background:rgba(255,255,255,.04);color:var(--muted); }
-.hm-na     { background:transparent;          color:var(--border2);font-size:0.6rem;}
-
-.heatmap-legend { display:flex; gap:12px; flex-wrap:wrap; font-size:0.67rem; color:var(--muted); margin-top:12px; align-items:center; }
-.hl-dot { width:10px;height:10px;border-radius:3px;display:inline-block;margin-right:3px; }
-
-/* Seasonal tab bar */
-.season-tabs { display:flex; gap:6px; flex-wrap:wrap; margin-bottom:20px; }
-.season-tab  {
-  background:rgba(255,255,255,.04); border:1px solid var(--border);
-  border-radius:20px; padding:5px 14px; font-size:0.72rem; font-weight:600;
-  color:var(--text2); cursor:pointer; transition:all .18s;
-}
-.season-tab:hover { color:var(--text); border-color:var(--border2); }
-.season-tab.active { background:rgba(79,172,254,.1); color:var(--blue); border-color:rgba(79,172,254,.25); }
-
-/* Vol-divergence chip */
-.vd-chip {
-  font-size:0.62rem;font-weight:700;padding:2px 7px;border-radius:8px;
-  background:rgba(255,214,10,.08);color:var(--gold);border:1px solid rgba(255,214,10,.2);
-}
-
 /* ═══════════════════════════════════════════════════
    ANIMATIONS
 ═══════════════════════════════════════════════════ */
@@ -896,7 +810,6 @@ td { padding: 12px 18px; vertical-align: middle; font-size: 0.81rem; white-space
       <button class="nav-tab active" onclick="showPage('dashboard',this)">Dashboard</button>
       <button class="nav-tab" onclick="showPage('calendar',this)">Calendar</button>
       <button class="nav-tab" onclick="showPage('prediction',this)">🔮 Prediction</button>
-      <button class="nav-tab" onclick="showPage('seasonal',this)">📅 Seasonal</button>
       <button class="nav-tab" onclick="showPage('about',this)">About</button>
     </div>
 
@@ -907,13 +820,6 @@ td { padding: 12px 18px; vertical-align: middle; font-size: 0.81rem; white-space
       </div>
       <span class="source-chip" id="sourceChip"></span>
       <span class="next-refresh" id="nextRefresh"></span>
-      <!-- Global Filter -->
-      <span class="filter-label">Show</span>
-      <select class="filter-select" id="globalFilter" onchange="applyGlobalFilter(this.value)">
-        <option value="200" selected>Top 200</option>
-        <option value="100">Top 100</option>
-        <option value="50">Top 50</option>
-      </select>
       <button class="btn btn-ghost" onclick="openSettings()">⚙ API Key</button>
       <button class="btn btn-primary" id="refreshBtn" onclick="manualRefresh()">↻ Refresh</button>
     </div>
@@ -1245,66 +1151,45 @@ td { padding: 12px 18px; vertical-align: middle; font-size: 0.81rem; white-space
         <div class="formula-header">
           <span class="formula-icon">∑</span>
           <div>
-            <div class="formula-title">Smart Scoring Formula</div>
-            <div class="formula-sub">7-factor weighted model with momentum exhaustion detection</div>
+            <div class="formula-title">Scoring Formula</div>
+            <div class="formula-sub">4-factor weighted momentum model</div>
           </div>
         </div>
         <div class="formula-eq">
-          <span class="feq-label">Smart Score</span>
+          <span class="feq-label">Score</span>
           <span class="feq-eq">=</span>
-          <span class="feq-term" style="--tc:var(--blue)">0.28 × Momentum₇ᵈ</span>
+          <span class="feq-term" style="--tc:var(--blue)">0.35 × Momentum₇ᵈ</span>
           <span class="feq-plus">+</span>
-          <span class="feq-term" style="--tc:var(--purple2)">0.20 × VolumeSurge</span>
+          <span class="feq-term" style="--tc:var(--purple2)">0.25 × VolumeSurge</span>
           <span class="feq-plus">+</span>
-          <span class="feq-term" style="--tc:var(--green)">0.20 × MomentumAccel</span>
+          <span class="feq-term" style="--tc:var(--green)">0.25 × MomentumAccel</span>
           <span class="feq-plus">+</span>
-          <span class="feq-term" style="--tc:var(--gold)">0.12 × TrendAlignment</span>
-          <span class="feq-plus">+</span>
-          <span class="feq-term" style="--tc:var(--red)">− RSI Penalty</span>
-          <span class="feq-plus">+</span>
-          <span class="feq-term" style="--tc:var(--amber)">− Streak Penalty</span>
-          <span class="feq-plus">+</span>
-          <span class="feq-term" style="--tc:var(--teal)">± VolDivergence</span>
+          <span class="feq-term" style="--tc:var(--gold)">0.15 × TrendAlignment</span>
         </div>
         <div class="formula-factors">
           <div class="ffactor">
-            <div class="ffactor-name" style="color:var(--blue)">Momentum₇ᵈ <span class="ffactor-w">28%</span></div>
-            <div class="ffactor-desc">Normalized rank of 7-day % gain. Momentum effect is one of the most replicated findings in quant finance — trending coins tend to continue.</div>
+            <div class="ffactor-name" style="color:var(--blue)">Momentum₇ᵈ <span class="ffactor-w">35%</span></div>
+            <div class="ffactor-desc">Normalized rank of 7-day % gain (0→100). Coins already trending up tend to continue — the <em>momentum effect</em> is one of the most replicated findings in quantitative finance.</div>
             <div class="ffactor-formula">rank(7d%) / totalCoins × 100</div>
           </div>
           <div class="ffactor">
-            <div class="ffactor-name" style="color:var(--purple2)">VolumeSurge <span class="ffactor-w">20%</span></div>
-            <div class="ffactor-desc">Volume-to-MarketCap ratio. High relative volume signals conviction — price moves on high volume are more likely to sustain.</div>
+            <div class="ffactor-name" style="color:var(--purple2)">VolumeSurge <span class="ffactor-w">25%</span></div>
+            <div class="ffactor-desc">Volume-to-MarketCap ratio, normalized (0→100). High relative volume signals institutional or retail conviction — price moves on high volume are more likely to sustain.</div>
             <div class="ffactor-formula">normalize(volume / marketCap) × 100</div>
           </div>
           <div class="ffactor">
-            <div class="ffactor-name" style="color:var(--green)">MomentumAccel <span class="ffactor-w">20%</span></div>
-            <div class="ffactor-desc">Is today's pace faster than the weekly average? Accelerating momentum (e.g. 5% today vs 2%/day avg) is a bullish short-term signal.</div>
+            <div class="ffactor-name" style="color:var(--green)">MomentumAccel <span class="ffactor-w">25%</span></div>
+            <div class="ffactor-desc">Is today's pace faster than the weekly average? If the coin gained 14% over 7 days (~2%/day avg) but is up 5% today, momentum is <em>accelerating</em> — a bullish signal.</div>
             <div class="ffactor-formula">clamp(24h% ÷ (7d% ÷ 7), 0, 3) ÷ 3 × 100</div>
           </div>
           <div class="ffactor">
-            <div class="ffactor-name" style="color:var(--gold)">TrendAlignment <span class="ffactor-w">12%</span></div>
-            <div class="ffactor-desc">Do 24h and 7d signals agree? Aligned = conviction. Mixed signals (7d up, 24h down) suggest possible reversal.</div>
-            <div class="ffactor-formula">both positive→100 · mixed→40 · both negative→0</div>
-          </div>
-          <div class="ffactor">
-            <div class="ffactor-name" style="color:var(--red)">RSI Penalty <span class="ffactor-w">Deduction</span></div>
-            <div class="ffactor-desc">Estimated RSI from price action. RSI &gt; 70 = overbought → score penalty. RSI &lt; 30 = oversold → small bonus. Prevents chasing overextended coins.</div>
-            <div class="ffactor-formula">RSI&gt;70: −(RSI−70)×0.5 · RSI&lt;30: +(30−RSI)×0.2</div>
-          </div>
-          <div class="ffactor">
-            <div class="ffactor-name" style="color:var(--amber)">Streak Penalty <span class="ffactor-w">Deduction</span></div>
-            <div class="ffactor-desc">Consecutive green days. 1–3 days: normal. 4–6 days: caution. 7+ days: high reversal risk — score penalized. Captures your key insight: nothing runs forever.</div>
-            <div class="ffactor-formula">streak≥7: −15 · streak≥4: −7 · streak≤3: 0</div>
-          </div>
-          <div class="ffactor">
-            <div class="ffactor-name" style="color:var(--teal)">Vol Divergence <span class="ffactor-w">Signal</span></div>
-            <div class="ffactor-desc">Price up but volume declining = weak momentum, likely to reverse (penalty). Price up AND volume rising = strong conviction (bonus).</div>
-            <div class="ffactor-formula">price↑+vol↓: −8 · price↑+vol↑: +5 · else: 0</div>
+            <div class="ffactor-name" style="color:var(--gold)">TrendAlignment <span class="ffactor-w">15%</span></div>
+            <div class="ffactor-desc">Do 24h and 7d signals agree? Aligned signals (both positive) indicate conviction. Mixed signals (7d up, 24h down) suggest possible reversal — lower weight assigned.</div>
+            <div class="ffactor-formula">both positive→100 · both negative→0 · mixed→40</div>
           </div>
         </div>
         <div class="formula-disclaimer">
-          ⚠️ <strong>Confidence capped at 78%.</strong> This model detects momentum exhaustion signals (RSI, streaks, volume divergence) — but cannot predict news, listings, or macro events. A coin flagged ⚠️ Overbought may still keep running. Use this as one lens, not the whole picture.
+          ⚠️ <strong>Confidence cap at 72%.</strong> This model uses only momentum and volume signals from available API data. It does not account for macroeconomic events, regulatory news, project fundamentals, or broader market sentiment. Treat predictions as one data point among many — never as financial advice.
         </div>
       </div>
 
@@ -1320,12 +1205,12 @@ td { padding: 12px 18px; vertical-align: middle; font-size: 0.81rem; white-space
       <!-- Results -->
       <div id="predResults" style="display:none">
         <div class="section-eyebrow" style="margin-bottom:16px;margin-top:8px">
-          <span class="section-eyebrow-text">Smart Prediction — Top 10 Next 7 Days</span>
+          <span class="section-eyebrow-text">Predicted Top 10 — Next 7 Days</span>
           <div class="section-eyebrow-line"></div>
         </div>
         <div class="pred-grid" id="predGrid"></div>
         <div style="margin-top:24px;font-size:0.75rem;color:var(--muted);line-height:1.7;max-width:700px">
-          <strong style="color:var(--text2)">How to read this:</strong> Score is 0–100. Confidence = Score × 0.78 (capped). 🔴 Overbought / ⚠️ Extended Streak = caution flags even when score is high. A high-scoring coin with both flags may still run — but risk/reward is less favorable. Track accuracy weekly.
+          <strong style="color:var(--text2)">How to read this:</strong> Score is 0–100. Confidence = Score × 0.72 (capped). The formula is purely backward-looking — it does not know about future news, partnerships, listings, or macro events. Run this weekly and track accuracy. After 6 months of data you'll know which factors are most predictive for your watchlist.
         </div>
       </div>
 
@@ -1333,64 +1218,6 @@ td { padding: 12px 18px; vertical-align: middle; font-size: 0.81rem; white-space
   </div>
 
 </div><!-- /app-shell -->
-
-  <!-- ══════════════ SEASONAL ══════════════ -->
-  <div id="page-seasonal" class="page">
-    <div class="page-wrap" style="padding-top:40px">
-      <div class="section-eyebrow" style="margin-bottom:14px">
-        <span class="section-eyebrow-text">Historical Patterns</span>
-        <div class="section-eyebrow-line"></div>
-      </div>
-      <h2 class="section-h2">Seasonal Performance Heatmap</h2>
-      <p class="section-sub">Which coins historically perform best in each month? Based on live 30-day rolling data stored since you started using the app — plus estimated historical patterns for top coins.</p>
-
-      <div class="season-tabs">
-        <button class="season-tab active" onclick="seasonView('heatmap',this)">📊 Full Heatmap</button>
-        <button class="season-tab" onclick="seasonView('best',this)">🏆 Best Month Picks</button>
-        <button class="season-tab" onclick="seasonView('patterns',this)">📈 Known Crypto Patterns</button>
-      </div>
-
-      <div id="season-heatmap" class="season-panel">
-        <div class="glass-card" style="padding:24px 28px">
-          <div style="font-size:0.78rem;color:var(--text2);margin-bottom:16px;line-height:1.7">
-            Monthly average performance of top coins. Green = historically strong month. Red = historically weak. 
-            <strong style="color:var(--text)">Cells marked with * are estimated from known patterns</strong> — cells without * are calculated from your locally stored snapshots.
-          </div>
-          <div class="heatmap-wrap">
-            <table class="heatmap-table" id="seasonHeatmapTable">
-              <thead id="seasonHeatmapHead"></thead>
-              <tbody id="seasonHeatmapBody"></tbody>
-            </table>
-          </div>
-          <div class="heatmap-legend">
-            <span><span class="hl-dot" style="background:rgba(0,245,160,.4)"></span> &gt;+10% avg</span>
-            <span><span class="hl-dot" style="background:rgba(0,212,170,.25)"></span> +3% to +10%</span>
-            <span><span class="hl-dot" style="background:rgba(255,255,255,.06)"></span> Flat / small move</span>
-            <span><span class="hl-dot" style="background:rgba(255,77,109,.2)"></span> −3% to −10%</span>
-            <span><span class="hl-dot" style="background:rgba(255,77,109,.35)"></span> &lt;−10% avg</span>
-          </div>
-        </div>
-      </div>
-
-      <div id="season-best" class="season-panel" style="display:none">
-        <div class="glass-card" style="padding:24px 28px">
-          <div style="font-size:0.78rem;color:var(--text2);margin-bottom:20px">Top predicted performers for the <strong style="color:var(--gold)">current month</strong> based on historical seasonal patterns.</div>
-          <div id="seasonBestGrid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px"></div>
-        </div>
-      </div>
-
-      <div id="season-patterns" class="season-panel" style="display:none">
-        <div class="glass-card" style="padding:28px 32px;font-size:0.84rem;color:var(--text2);line-height:1.8;max-width:720px">
-          <h3 style="font-size:1.05rem;font-weight:800;color:var(--text);margin-bottom:18px;letter-spacing:-0.02em">📅 Known Crypto Seasonal Patterns</h3>
-          <div style="display:flex;flex-direction:column;gap:18px" id="patternList"></div>
-          <div style="margin-top:24px;padding:14px 18px;background:rgba(255,214,10,.04);border:1px solid rgba(255,214,10,.12);border-radius:var(--r-md);font-size:0.74rem;color:var(--muted);line-height:1.65">
-            ⚠️ Seasonal patterns are tendencies, not guarantees. Any year can break the pattern (2022 broke nearly all of them). Use as context, not as a trade signal on its own.
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
 
 <!-- ════════════════════════════════════════
      JAVASCRIPT — All logic
@@ -1400,7 +1227,6 @@ td { padding: 12px 18px; vertical-align: middle; font-size: 0.81rem; white-space
 const STORAGE_KEY    = 'cryptotracker_snapshots';
 const LAST_FETCH_KEY = 'cryptotracker_last_fetch';
 const API_KEY_STORE  = 'cryptotracker_cg_key';
-const FILTER_KEY     = 'cryptotracker_filter';
 const REFRESH_MS     = 12 * 60 * 60 * 1000;
 
 const CG_URL = 'https://api.coingecko.com/api/v3/coins/markets' +
@@ -1410,8 +1236,7 @@ const CC_URL = 'https://api.coincap.io/v2/assets?limit=200';
 // ─── STATE ────────────────────────────────────────
 let currentData = [], calYear = new Date().getFullYear(),
     calMonth = new Date().getMonth(), calSelected = null,
-    refreshTimer = null, countdownTimer = null,
-    activeFilter = 200; // default Top 200
+    refreshTimer = null, countdownTimer = null;
 
 // ─── SETTINGS ─────────────────────────────────────
 function openSettings() {
@@ -1435,38 +1260,11 @@ document.getElementById('settingsModal').addEventListener('click', e => { if (e.
 
 // ─── INIT ─────────────────────────────────────────
 window.addEventListener('DOMContentLoaded', async () => {
-  // Restore saved filter
-  const savedFilter = parseInt(localStorage.getItem(FILTER_KEY)) || 200;
-  activeFilter = savedFilter;
-  const sel = document.getElementById('globalFilter');
-  if (sel) sel.value = String(savedFilter);
-
   renderCalendar();
   const cached = loadTodayCache();
   if (cached) { setStatus('Cached'); renderDashboard(cached); scheduleRefresh(); }
   else await fetchData();
 });
-
-// ─── GLOBAL FILTER ────────────────────────────────
-function applyGlobalFilter(val) {
-  activeFilter = parseInt(val) || 200;
-  localStorage.setItem(FILTER_KEY, String(activeFilter));
-
-  // Re-render everything with new filter
-  if (currentData && currentData.length) {
-    renderDashboard(currentData);
-    // Re-run active tab if prediction or seasonal is open
-    const predPage = document.getElementById('page-prediction');
-    if (predPage && predPage.classList.contains('active')) runPrediction();
-    const seasPage = document.getElementById('page-seasonal');
-    if (seasPage && seasPage.classList.contains('active')) buildSeasonalHeatmap();
-  }
-}
-
-// Helper: get filtered slice of data
-function filteredData() {
-  return currentData.slice(0, activeFilter);
-}
 
 // ─── MULTI-SOURCE FETCH ───────────────────────────
 async function fetchData() {
@@ -1588,11 +1386,10 @@ function getStoredDates()  { try{return Object.keys(JSON.parse(localStorage.getI
 // ─── RENDER DASHBOARD ─────────────────────────────
 function renderDashboard(data) {
   currentData = data;
-  const fd = filteredData(); // apply global filter
   showLoading(false);
   document.getElementById('dataContent').style.display = 'block';
 
-  countUp(document.getElementById('statCoins'), fd.length, 1200, false);
+  countUp(document.getElementById('statCoins'), data.length, 1200, false);
   const last = localStorage.getItem(LAST_FETCH_KEY);
   if (last) {
     const d = new Date(last);
@@ -1601,10 +1398,10 @@ function renderDashboard(data) {
       d.toLocaleDateString([],{month:'short',day:'numeric'});
   }
 
-  const by24 = [...fd].filter(c=>c.price_change_percentage_24h!=null).sort((a,b)=>b.price_change_percentage_24h-a.price_change_percentage_24h);
-  const by7d = [...fd].filter(c=>c.price_change_percentage_7d_in_currency!=null).sort((a,b)=>b.price_change_percentage_7d_in_currency-a.price_change_percentage_7d_in_currency);
-  const byAmt = [...fd].filter(c=>c.price_change_24h!=null).sort((a,b)=>b.price_change_24h-a.price_change_24h);
-  const byVol = [...fd].filter(c=>c.total_volume!=null).sort((a,b)=>b.total_volume-a.total_volume);
+  const by24 = [...data].filter(c=>c.price_change_percentage_24h!=null).sort((a,b)=>b.price_change_percentage_24h-a.price_change_percentage_24h);
+  const by7d = [...data].filter(c=>c.price_change_percentage_7d_in_currency!=null).sort((a,b)=>b.price_change_percentage_7d_in_currency-a.price_change_percentage_7d_in_currency);
+  const byAmt = [...data].filter(c=>c.price_change_24h!=null).sort((a,b)=>b.price_change_24h-a.price_change_24h);
+  const byVol = [...data].filter(c=>c.total_volume!=null).sort((a,b)=>b.total_volume-a.total_volume);
 
   if (by24.length>=2) {
     const b=by24[0],w=by24[by24.length-1];
@@ -1629,7 +1426,7 @@ function renderDashboard(data) {
   fillTable('tbl-vol-up', byVol.slice(0,10),   'volup');
   fillTable('tbl-vol-dn', byVol.slice(-10).reverse(),'voldn');
 
-  buildTicker(fd);
+  buildTicker(data);
   requestAnimationFrame(setupReveal);
 }
 
@@ -1747,7 +1544,6 @@ function showPage(name,btn){
   btn.classList.add('active');
   if(name==='calendar')   renderCalendar();
   if(name==='prediction') runPrediction();
-  if(name==='seasonal')   { buildSeasonalHeatmap(); }
 }
 function setStatus(t){
   document.getElementById('statusText').textContent=t;
@@ -1762,32 +1558,8 @@ function showLoading(show){
 function showError(msg){ const e=document.getElementById('errorBanner');e.textContent=msg;e.style.display='block';setTimeout(()=>e.style.display='none',10000); }
 function hideError(){ document.getElementById('errorBanner').style.display='none'; }
 
-// ─── PREDICTION ENGINE (SMART v2) ────────────────
-function estimateRSI(mom7d, mom24h) {
-  // Approximate RSI from recent price change data
-  // RSI proxy: based on 7d and 24h momentum relative to market
-  const avgGain = Math.max(0, mom7d / 7);
-  const avgLoss = Math.max(0, -mom7d / 7);
-  if (avgGain === 0 && avgLoss === 0) return 50;
-  if (avgLoss === 0) return 85 + Math.min(10, mom7d / 5);
-  const rs = avgGain / avgLoss;
-  let rsi = 100 - (100 / (1 + rs));
-  // Boost/reduce by 24h direction
-  if (mom24h > 0) rsi = Math.min(95, rsi + mom24h * 0.4);
-  else rsi = Math.max(5, rsi + mom24h * 0.4);
-  return Math.max(5, Math.min(95, rsi));
-}
-
-function estimateStreak(mom7d, mom24h) {
-  // Estimate consecutive green days from momentum data
-  if (mom7d <= 0) return 0;
-  const avgDaily = mom7d / 7;
-  if (avgDaily <= 0) return 0;
-  // If consistently positive, estimate streak
-  const streak = Math.round(mom7d / Math.max(0.5, Math.abs(mom24h) || 1));
-  return Math.min(10, Math.max(0, streak));
-}
-
+// ─── PREDICTION ENGINE ───────────────────────────
+// Triggered when user opens the Prediction tab
 function runPrediction() {
   const no7dEl    = document.getElementById('pred-no7d');
   const resultsEl = document.getElementById('predResults');
@@ -1799,57 +1571,54 @@ function runPrediction() {
     return;
   }
 
-  const fd = filteredData(); // apply global filter
-  const has7d = fd.some(c => c.price_change_percentage_7d_in_currency != null);
-  if (!has7d) { no7dEl.style.display = 'flex'; resultsEl.style.display = 'none'; return; }
+  // Need 7d data — check first coin with it
+  const has7d = currentData.some(c => c.price_change_percentage_7d_in_currency != null);
+  if (!has7d) {
+    no7dEl.style.display = 'flex'; resultsEl.style.display = 'none'; return;
+  }
   no7dEl.style.display = 'none';
 
-  // ── STEP 1: Raw factors ────────────────────────────────────────
-  const eligible = fd.filter(c =>
+  // ── Stablecoin exclusion (USD-pegged & other fiat-pegged coins) ──
+  const STABLECOINS = new Set([
+    'usdt','usdc','busd','dai','tusd','usdp','usdd','frax','gusd','lusd',
+    'susd','usdn','cusd','nusd','usdx','husd','ousd','musd','usdk','usds',
+    'fdusd','pyusd','crvusd','mkusd','eurs','eurt','xaut','paxg','usde',
+    'dola','ageur','alusd','usd0','wusd',
+  ]);
+  // Also auto-exclude any coin whose price barely moves — catches unlisted
+  // stables pegged to $1 that aren't in the list above
+  const isStable = c =>
+    STABLECOINS.has((c.symbol || '').toLowerCase()) ||
+    (Math.abs(c.price_change_percentage_7d_in_currency || 0) < 0.6 &&
+     Math.abs(c.price_change_percentage_24h || 0) < 0.3);
+
+  // ── STEP 1: Compute raw factor values ──────────────────────────
+  const eligible = currentData.filter(c =>
     c.price_change_percentage_7d_in_currency != null &&
     c.price_change_percentage_24h != null &&
-    c.total_volume != null && c.market_cap > 0
+    c.total_volume != null && c.market_cap > 0 &&
+    !isStable(c)
   );
 
-  // Get previous snapshot to compute volume trend
-  const prevSnap = (() => {
-    try {
-      const snaps = JSON.parse(localStorage.getItem(STORAGE_KEY)||'{}');
-      const keys  = Object.keys(snaps).sort().slice(-2,-1);
-      return keys.length ? snaps[keys[0]] : null;
-    } catch(e) { return null; }
-  })();
-
-  const prevVolMap = {};
-  if (prevSnap) prevSnap.forEach(c => { prevVolMap[c.id] = c.total_volume; });
-
   const scored = eligible.map(c => {
-    const mom7d  = c.price_change_percentage_7d_in_currency;
-    const mom24h = c.price_change_percentage_24h;
-    const volRat = c.total_volume / c.market_cap;
+    const mom7d  = c.price_change_percentage_7d_in_currency;   // raw 7d %
+    const mom24h = c.price_change_percentage_24h;              // raw 24h %
+    const volRat = c.total_volume / c.market_cap;              // volume/mcap
 
+    // MomentumAccel: 24h % vs average daily rate over 7d
     const avgDaily = mom7d / 7;
     let accelRaw = avgDaily !== 0 ? mom24h / avgDaily : 0;
-    accelRaw = Math.max(0, Math.min(3, accelRaw));
+    accelRaw = Math.max(0, Math.min(3, accelRaw)); // clamp 0→3
 
+    // TrendAlignment: directional agreement
     const alignment = (mom7d > 0 && mom24h > 0) ? 100
-                    : (mom7d < 0 && mom24h < 0) ? 0 : 40;
+                    : (mom7d < 0 && mom24h < 0) ? 0
+                    : 40; // mixed signal
 
-    // NEW: RSI estimate
-    const rsi    = estimateRSI(mom7d, mom24h);
-    // NEW: Streak estimate
-    const streak = estimateStreak(mom7d, mom24h);
-    // NEW: Volume divergence (price up but vol declining)
-    const prevVol = prevVolMap[c.id];
-    let volDiv = 0; // 0 = no signal
-    if (prevVol && mom24h > 0) {
-      volDiv = c.total_volume > prevVol ? 1 : -1; // 1=confirming, -1=diverging
-    }
-
-    return { coin: c, mom7d, mom24h, volRat, accelRaw, alignment, rsi, streak, volDiv };
+    return { coin: c, mom7d, mom24h, volRat, accelRaw, alignment };
   });
 
-  // ── STEP 2: Normalize ─────────────────────────────────────────
+  // ── STEP 2: Normalize mom7d, volRat, accelRaw to 0-100 ────────
   function normalize(arr, key) {
     const vals = arr.map(x => x[key]);
     const min = Math.min(...vals), max = Math.max(...vals);
@@ -1859,32 +1628,20 @@ function runPrediction() {
   normalize(scored, 'mom7d');
   normalize(scored, 'volRat');
   normalize(scored, 'accelRaw');
+  // alignment is already 0-100
 
-  // ── STEP 3: Smart composite score with penalties ───────────────
+  // ── STEP 3: Weighted composite score ───────────────────────────
   scored.forEach(x => {
-    let score =
-      0.28 * x.mom7d_n    +
-      0.20 * x.volRat_n   +
-      0.20 * x.accelRaw_n +
-      0.12 * x.alignment;
-
-    // RSI Penalty: overbought coins get penalized
-    if (x.rsi > 70)      score += -(x.rsi - 70) * 0.5;  // max −12.5 at RSI 95
-    else if (x.rsi < 30) score += (30 - x.rsi)  * 0.2;  // small bounce bonus
-
-    // Streak Penalty: consecutive green days
-    if      (x.streak >= 7) score -= 15;
-    else if (x.streak >= 4) score -= 7;
-
-    // Volume Divergence
-    if (x.volDiv === -1)  score -= 8;   // price up, volume declining
-    else if (x.volDiv === 1) score += 5; // price up, volume confirming
-
-    x.score = Math.max(0, Math.min(100, score));
-    x.confidence = Math.min(78, x.score * 0.78);
+    x.score =
+      0.35 * x.mom7d_n    +   // Momentum 7d
+      0.25 * x.volRat_n   +   // Volume surge
+      0.25 * x.accelRaw_n +   // Momentum acceleration
+      0.15 * x.alignment;     // Trend alignment
+    // Confidence: score × 0.72, max 72%
+    x.confidence = Math.min(72, x.score * 0.72);
   });
 
-  // ── STEP 4: Sort + top 10 ─────────────────────────────────────
+  // ── STEP 4: Sort and take top 10 ───────────────────────────────
   const top10 = scored.sort((a,b) => b.score - a.score).slice(0, 10);
 
   // ── STEP 5: Render ─────────────────────────────────────────────
@@ -1895,36 +1652,16 @@ function runPrediction() {
     const medals = ['🥇','🥈','🥉'];
     const rankLabel = i < 3 ? medals[i] + ' Rank ' + (i+1) : 'Rank ' + (i+1);
 
-    // RSI badge
-    let rsiBadge = '';
-    if      (x.rsi > 70) rsiBadge = `<span class="sig-badge sig-ob">🔴 Overbought RSI ${x.rsi.toFixed(0)}</span>`;
-    else if (x.rsi < 30) rsiBadge = `<span class="sig-badge sig-os">🟢 Oversold RSI ${x.rsi.toFixed(0)}</span>`;
-    else                 rsiBadge = `<span class="sig-badge sig-neu">RSI ${x.rsi.toFixed(0)} Neutral</span>`;
-
-    // Streak badge
-    let streakBadge = '';
-    const sdots = Array.from({length:Math.max(7, x.streak+2)}, (_,j) =>
-      `<span class="sdot ${j < x.streak ? 'sdot-g' : 'sdot-n'}"></span>`).join('');
-    if      (x.streak >= 7) streakBadge = `<span class="sig-badge sig-warn">⚠️ ${x.streak} Day Streak</span>`;
-    else if (x.streak >= 4) streakBadge = `<span class="sig-badge sig-neu">↑ ${x.streak} Days Up</span>`;
-    else if (x.streak > 0)  streakBadge = `<span class="sig-badge sig-ok">✓ ${x.streak} Days Up</span>`;
-
-    // Vol divergence badge
-    let vdBadge = '';
-    if      (x.volDiv === -1) vdBadge = `<span class="vd-chip">⚡ Vol Diverging</span>`;
-    else if (x.volDiv ===  1) vdBadge = `<span class="sig-badge sig-ok">Vol Confirming</span>`;
-
-    // Confidence bar color
-    const confCls = x.confidence >= 55 ? 'fill-high' : x.confidence >= 35 ? 'fill-mid' : 'fill-low';
-    const confText = x.confidence.toFixed(1) + '% confidence';
-
-    // Factor chips
+    // Factor strength chips
     const chips = [];
     if (x.mom7d_n    > 70) chips.push({label:'Strong 7d Momentum', cls:'strong'});
     if (x.volRat_n   > 70) chips.push({label:'High Volume Surge',   cls:'strong'});
     if (x.accelRaw_n > 70) chips.push({label:'Accel Momentum',      cls:'good'});
     if (x.alignment === 100) chips.push({label:'Aligned Signals',   cls:'good'});
-    if (chips.length === 0) chips.push({label:'Moderate signals',   cls:''});
+    if (chips.length === 0)  chips.push({label:'Moderate signals',  cls:''});
+
+    const fillWidth = x.score.toFixed(1);
+    const confText  = x.confidence.toFixed(1) + '% confidence';
 
     return `
     <div class="pred-card ${tierClass}" style="animation-delay:${i*0.05}s">
@@ -1936,19 +1673,10 @@ function runPrediction() {
         <img class="pred-img" src="${c.image}" alt="${c.symbol}" loading="lazy" onerror="this.style.display='none'">
         <div><div class="pred-name">${c.name}</div><div class="pred-sym">${c.symbol.toUpperCase()}</div></div>
       </div>
-
-      <!-- Smart Signals Row -->
-      <div class="smart-row">${rsiBadge}${streakBadge}${vdBadge}</div>
-
-      <!-- Streak dots visual -->
-      ${x.streak > 0 ? `<div class="streak-bar"><span>Streak:</span><div class="streak-dots">${sdots}</div></div>` : ''}
-
-      <!-- Confidence bar -->
-      <div class="conf-bar-wrap">
-        <div class="conf-bar-label"><span>Smart Score</span><span>${x.score.toFixed(1)} / 100</span></div>
-        <div class="conf-bar-track"><div class="conf-bar-fill ${confCls}" style="width:${x.score.toFixed(1)}%"></div></div>
+      <div class="pred-score-bar-wrap">
+        <div class="pred-score-label"><span>Composite Score</span><span>${x.score.toFixed(1)} / 100</span></div>
+        <div class="pred-score-track"><div class="pred-score-fill" style="width:${fillWidth}%"></div></div>
       </div>
-
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:5px;font-size:0.7rem;color:var(--muted);margin-top:8px;margin-bottom:10px">
         <div>7d Momentum <span style="color:var(--text2);font-weight:700">${fmt(x.mom7d,'pct')}</span></div>
         <div>24h Change <span style="color:${x.mom24h>=0?'var(--green)':'var(--red)'};font-weight:700">${fmt(x.mom24h,'pct')}</span></div>
@@ -1961,163 +1689,7 @@ function runPrediction() {
 
   resultsEl.style.display = 'block';
   document.getElementById('predSubtitle').textContent =
-    `Analyzed ${eligible.length} coins (Top ${activeFilter}) · Smart Score v2 with RSI + Streak + Volume Divergence · ${new Date(localStorage.getItem(LAST_FETCH_KEY)||Date.now()).toLocaleDateString()}`;
-}
-
-// ─── SEASONAL ENGINE ─────────────────────────────
-const MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-
-// Known historical seasonal patterns for major coins (estimated from 2019-2024 data)
-const HISTORICAL_PATTERNS = {
-  bitcoin:  [-5, 13, -5, 5, -6, -10, 8, 14, -12, 22, 38, 9],
-  ethereum: [-3, 20, -8, 3, -9, -15, 10, 18, -10, 20, 32, 7],
-  solana:   [12, 25, -5, 8, -8, -18, 15, 22, -8, 35, 45, 12],
-  binancecoin: [-2, 18, -4, 4, -7, -12, 6, 12, -9, 18, 30, 8],
-  ripple:   [-8, 15, -6, 5, -5, -8, 5, 10, -7, 15, 42, 5],
-  cardano:  [-5, 22, -8, 6, -10, -20, 12, 20, -10, 25, 38, 6],
-  dogecoin: [-3, 25, -5, 18, -12, -8, 8, 15, -8, 10, 28, 5],
-  avalanche:[-4, 28, -6, 5, -12, -22, 15, 25, -8, 30, 42, 8],
-};
-
-function seasonView(panel, btn) {
-  document.querySelectorAll('.season-panel').forEach(p => p.style.display = 'none');
-  document.querySelectorAll('.season-tab').forEach(t => t.classList.remove('active'));
-  document.getElementById('season-' + panel).style.display = '';
-  btn.classList.add('active');
-  if (panel === 'heatmap') buildSeasonalHeatmap();
-  if (panel === 'best')    buildSeasonalBest();
-  if (panel === 'patterns') buildSeasonalPatterns();
-}
-
-function getLocalMonthlyData() {
-  // Build monthly avg from stored snapshots
-  try {
-    const snaps = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
-    const monthly = {}; // {coinId: {monthIdx: [pcts]}}
-    Object.entries(snaps).forEach(([dateStr, coins]) => {
-      const m = new Date(dateStr).getMonth();
-      if (!Array.isArray(coins)) return;
-      coins.forEach(c => {
-        if (!c.id || c.price_change_percentage_24h == null) return;
-        if (!monthly[c.id]) monthly[c.id] = {};
-        if (!monthly[c.id][m]) monthly[c.id][m] = [];
-        monthly[c.id][m].push(c.price_change_percentage_24h);
-      });
-    });
-    // Average each month
-    const result = {};
-    Object.entries(monthly).forEach(([id, months]) => {
-      result[id] = {};
-      Object.entries(months).forEach(([m, vals]) => {
-        result[id][m] = vals.reduce((a,b)=>a+b,0) / vals.length;
-      });
-    });
-    return result;
-  } catch(e) { return {}; }
-}
-
-function hmClass(val) {
-  if (val == null) return 'hm-na';
-  if (val >  10) return 'hm-hot';
-  if (val >   3) return 'hm-warm';
-  if (val >  -3) return 'hm-flat';
-  if (val > -10) return 'hm-cool';
-  return 'hm-cold';
-}
-
-function buildSeasonalHeatmap() {
-  const localData = getLocalMonthlyData();
-  // Get top coins based on active filter
-  const coins = filteredData().slice(0, 15);
-  if (!coins.length) {
-    document.getElementById('seasonHeatmapBody').innerHTML =
-      '<tr><td colspan="13" style="padding:30px;text-align:center;color:var(--muted)">Load data first to see the heatmap.</td></tr>';
-    return;
-  }
-
-  // Build header
-  document.getElementById('seasonHeatmapHead').innerHTML =
-    `<tr><th style="text-align:left;min-width:120px">Coin</th>${MONTHS.map(m=>`<th>${m}</th>`).join('')}</tr>`;
-
-  const tbody = document.getElementById('seasonHeatmapBody');
-  tbody.innerHTML = coins.map(c => {
-    const local  = localData[c.id] || {};
-    const hist   = HISTORICAL_PATTERNS[c.id] || null;
-    const cells  = MONTHS.map((_, mi) => {
-      let val  = null;
-      let mark = '';
-      if (local[mi] != null) {
-        val  = local[mi];
-      } else if (hist) {
-        val  = hist[mi];
-        mark = '*';
-      }
-      const cls  = hmClass(val);
-      const disp = val != null ? (val >= 0 ? '+' : '') + val.toFixed(1) + '%' + mark : '—';
-      return `<td class="${cls}">${disp}</td>`;
-    }).join('');
-    return `<tr>
-      <td><div class="heatmap-coin-cell">
-        <img src="${c.image}" onerror="this.style.display='none'" loading="lazy">
-        <span style="font-weight:700;color:var(--text)">${c.symbol.toUpperCase()}</span>
-      </div></td>
-      ${cells}
-    </tr>`;
-  }).join('');
-}
-
-function buildSeasonalBest() {
-  const curMonth = new Date().getMonth();
-  const localData = getLocalMonthlyData();
-  const coins = filteredData().slice(0, 50);
-
-  const ranked = coins.map(c => {
-    const local = localData[c.id]?.[curMonth];
-    const hist  = HISTORICAL_PATTERNS[c.id]?.[curMonth];
-    const val   = local ?? hist ?? null;
-    return { c, val };
-  }).filter(x => x.val != null).sort((a,b) => b.val - a.val).slice(0, 8);
-
-  const grid = document.getElementById('seasonBestGrid');
-  if (!ranked.length) {
-    grid.innerHTML = '<div style="color:var(--muted);font-size:0.82rem">No seasonal data available yet. Load data and wait a few days for local patterns to build.</div>';
-    return;
-  }
-
-  grid.innerHTML = ranked.map((x, i) => {
-    const cls = x.val > 10 ? 'hm-hot' : x.val > 3 ? 'hm-warm' : x.val > -3 ? 'hm-flat' : 'hm-cool';
-    const sign = x.val >= 0 ? '+' : '';
-    return `<div class="glass-card" style="padding:18px 20px;display:flex;align-items:center;gap:14px">
-      <span style="font-size:1.4rem;font-weight:900;color:var(--muted);min-width:28px">${i+1}</span>
-      <img src="${x.c.image}" style="width:36px;height:36px;border-radius:50%" onerror="this.style.display='none'">
-      <div style="flex:1">
-        <div style="font-weight:800;font-size:0.9rem">${x.c.name}</div>
-        <div style="font-size:0.68rem;color:var(--muted)">${MONTHS[curMonth]} Historical Avg</div>
-      </div>
-      <div class="${cls}" style="padding:5px 12px;border-radius:10px;font-weight:800;font-size:0.88rem">${sign}${x.val.toFixed(1)}%</div>
-    </div>`;
-  }).join('');
-}
-
-function buildSeasonalPatterns() {
-  const patterns = [
-    { icon:'🟠', period:'October ("Uptober")', desc:'Bitcoin has historically posted strong gains in October. The last 5 years: 4 out of 5 were positive. Often kicks off Q4 bull runs. Altcoins usually follow 2–4 weeks later.', coins:'BTC, then alts' },
-    { icon:'🟢', period:'November–December', desc:'Historically the strongest consecutive months for crypto. End-of-year FOMO, year-end bonuses entering the market. 2017, 2020, 2021, and 2023 all saw major peaks in this window.', coins:'BTC, ETH, SOL, most large caps' },
-    { icon:'🔵', period:'January Effect', desc:'Often a bounce after December tax-loss selling. Retail investors getting year-end bonuses and investing. Has worked in most years, though 2022 and 2023 were exceptions.', coins:'BTC, ETH' },
-    { icon:'🔴', period:'May–June ("Sell in May")', desc:'Historically weaker months. "Crypto winter 2022" started in May. Summer months often see reduced volume as institutional players take vacations. 2021\'s May crash (-50% in weeks) made this famous.', coins:'Market-wide weakness' },
-    { icon:'🟡', period:'Alt Season Lag', desc:'Altcoins typically follow Bitcoin\'s big run by 4–8 weeks. When BTC dominance starts falling, capital rotates to ETH, then large-cap alts, then mid/small caps. Watching BTC dominance % is key.', coins:'ETH, SOL, large caps → small caps' },
-    { icon:'⚪', period:'Q3 (July–September)', desc:'Mixed. Can be a reset period. 2021 saw a strong summer rally (El Salvador news), but most years Q3 is sideways-to-down. Volume tends to be lower. Use this period to accumulate for Q4.', coins:'Varies by year' },
-  ];
-
-  document.getElementById('patternList').innerHTML = patterns.map(p => `
-    <div style="display:flex;gap:14px;padding:16px 20px;background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:var(--r-md)">
-      <span style="font-size:1.6rem;flex-shrink:0">${p.icon}</span>
-      <div>
-        <div style="font-weight:800;font-size:0.88rem;color:var(--text);margin-bottom:5px">${p.period}</div>
-        <div style="font-size:0.78rem;line-height:1.7;margin-bottom:6px">${p.desc}</div>
-        <div style="font-size:0.68rem;color:var(--blue);font-weight:600">Typically affects: ${p.coins}</div>
-      </div>
-    </div>`).join('');
+    `Analyzed ${eligible.length} coins (stablecoins excluded) · Data from ${new Date(localStorage.getItem(LAST_FETCH_KEY)||Date.now()).toLocaleDateString()} · Scores update on each data refresh`;
 }
 
 // ─── TICKER STRIP ─────────────────────────────────
